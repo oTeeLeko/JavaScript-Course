@@ -145,7 +145,7 @@ const calcDisplaySummary = function (acc) {
   const interest = acc.movements
     .filter((mov) => mov > 0)
     .map((deposit) => (deposit * acc.interestRate) / 100)
-    .filter((int, i, arr) => {
+    .filter((int) => {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -220,7 +220,7 @@ btnLogin.addEventListener("click", function (e) {
     labelDate.textContent = now.toLocaleString("en-GB", {
       dateStyle: "long",
       timeStyle: "short",
-    });
+    }); //navigator.language
 
     // Clear inout fields
     inputLoginUsername.value = inputLoginPin.value = "";
